@@ -17,7 +17,7 @@
 ## Step 1.3 Data preparation
 Convert recorded audio files to *.wav files
 
-`$ python ./convert_file.py  <Data Folder>`
+`python ./convert_file.py  <Data Folder>`
 
 The `Data Folder` should contains many subfolders where your audios files reside. Typically, one of your audio file could be `<Data Folder>/group1/a.mp3`.
 
@@ -27,16 +27,16 @@ The fraction of moved files depends on yourself.
 ## Step 1.4 Install Grpc
 The data augmentation server is implemented by grpc.
 
-`$ pip install grpcio`
+`pip install grpcio`
 
 or for some version of python3
 
-`$ pip3 install grpcio`
+`pip3 install grpcio`
 
 # Step 2. How to train a deep model?
 Training involves two files: `train.py` and `augmentation/`.
 
-`$ python -m augmentation` will start a augmentation server that provide train data and test data.
+`python -m augmentation` will start a augmentation server that provide train data and test data.
 `train.py` will connect to augmentation server and request data.
 
 `augmentation/config.py` is used for configuring the batch size/thread size/data source/...
@@ -56,10 +56,10 @@ You have done it in `Data preparation`. Now check it again.
 * You should got sox in `sox/`, now check it again.
 
 ## Step 2.3 How to Run training process?
-server side: `$python -m augmentation`
+server side: `python -m augmentation`
 * this will start an augmentation server utilizing `sox`.
 
-client side: `$python train.py`
+client side: `python train.py`
 * this will start trainig with data requested from augmentation server.
 
 * NOTE: run it from the folder `audioNet`
@@ -86,7 +86,7 @@ See `Run python webfront.py`
 
 # Step 5. How to deploy your model in mobile? 
 * Choose an `ID` of checkpoint by yourself from `models/save_<ID>.h5`.
-* Run `$ python ./create_pb.py  <ID>`.  This will create file `models/model.pb`
+* Run `python ./create_pb.py  <ID>`.  This will create file `models/model.pb`
 *  Place your model.pb file where you want to deploy. Typically, see Android mobile example: [androidAudioRecg](http://gitlab.icenter.tsinghua.edu.cn/saturnlab/androidAudioRecg)
 
 
